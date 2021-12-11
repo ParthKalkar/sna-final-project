@@ -1,0 +1,32 @@
+version: '2'
+services:
+  fronted:
+    image: frontend:tutor
+#    depends_on:
+#      - backend
+    ports:
+      - "8081:4040"
+  backend:
+    healthcheck:
+      timeout: 45s
+      interval: 10s
+      retries: 10
+    image: backend:tutor
+    depends_on:
+     - db
+    ports:
+      - "7357:7357"
+    environment:
+      PROXY_API: http://backend:7357/
+    
+  db:
+    image: mypostgres:tutor
+    healthcheck:
+      test: [ "CMD", "pg_isready", "-q", "-d", "postgres", "-U", "postgres" ]
+      timeout: 45s
+      interval: 10s
+      retries: 10
+    volumes:
+      - ./mounts/db_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
