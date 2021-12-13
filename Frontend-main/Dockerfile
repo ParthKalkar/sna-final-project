@@ -1,8 +1,8 @@
+
 # Install dependencies
 FROM debian:latest AS build-env
-ENV PROXY_API=$PROXY_API
-RUN apt-get update 
-RUN apt-get install -y curl git wget unzip libgconf-2-4 gdb libstdc++6 libglu1-mesa fonts-droid-fallback lib32stdc++6 python3 psmisc
+RUN apt-get update
+RUN apt-get install -y curl git wget unzip libgconf-2-4 gdb libstdc++6 libglu1-mesa fonts-droid-fallback lib32stdc++6 python3
 RUN apt-get clean
 
 # Clone the flutter repo
@@ -27,18 +27,15 @@ WORKDIR /usr/local/bin/app
 
 # Get App Dependencies
 RUN flutter pub get
-RUN flutter pub run build_runner build --delete-conflicting-outputs
 
 # Build the app for the web
 RUN flutter build web
 
+# Document the exposed port
+EXPOSE 7357
 
-# # Document the exposed port
-EXPOSE 4040
-
-# # Set the server startup script as executable
+# Set the server startup script as executable
 RUN ["chmod", "+x", "/usr/local/bin/app/server/server.sh"]
 
-# # Start the web server
-#ENTRYPOINT [ "/usr/local/bin/app/server/server.sh" ]
-CMD [ "bash", "/usr/local/bin/app/server/server.sh" ]
+# Start the web server
+ENTRYPOINT [ "/usr/local/bin/app/server/server.sh" ]
