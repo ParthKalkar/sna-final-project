@@ -250,15 +250,20 @@ It will run all the necessary commands mentioned above
 ## Difficulties <a id="diff"> </a>
 Following difficulties were faced in the whole process: 
 
-1. Docker behaved differently on different machines and it raised some errors {Mention about healthcheck}.
+1. Docker behaved differently on different machines and it raised some errors. When we tried to build docker-compose we have unsupported conf option healthcheck. 
+*Solution* - In order to solve that problem, we installed the very same versions of docker, check docker-compose version and virtual machine as well as put the same settings.
 
-In order to solve that problem, we installed the very same versions of docker and virtual machine as well as put the same settings.
 
-2. Mention about binded port error
-3. Mention about google creds error
+2. When docker containers was tested, we was not able to connect frontend and backend. 
+*Solution* - We check docker-compose file and project configuration. Finally, we set the correct ports to docker-compose file to solve this problem.
+3. To run backend it required google credantials and database.
+*Solution* - We add it on ```application.properties```. We meet the problem that google credentials was not installed correctly.
+Project documentation has no detaild explanation of how create google credatitals. To overcome this problem of wrong google credentials we create our own google credentials.
 
 ## Video Demonstration <a id="video"> </a>
-//Todo
+
+[Video link](https://drive.google.com/file/d/1ehFgO9LEUL_1O9_ix_97OVC5RffPxks0/view?usp=sharing)
+
 ## Results <a id="res"> </a>
 
 1. Docker front-end image ![](https://i.imgur.com/HkWs6pe.png)
