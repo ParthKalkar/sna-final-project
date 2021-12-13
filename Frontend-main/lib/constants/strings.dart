@@ -1,5 +1,5 @@
 class Urls {
-  static const String url = 'backend:7357/';
+  static const String url = 'backend:8080/';
   static String get_tutors = url +'tutors-list' ;
   static String get_students = url + 'students-list';
   static String get_user = url+'user/';

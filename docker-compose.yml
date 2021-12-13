@@ -5,7 +5,7 @@ services:
 #    depends_on:
 #      - backend
     ports:
-      - "8081:4040"
+      - "7357:7357"
   backend:
     healthcheck:
       timeout: 45s
@@ -15,7 +15,7 @@ services:
     depends_on:
      - db
     ports:
-      - "7357:7357"
+      - "8080:8080"
     environment:
       PROXY_API: http://backend:7357/
     

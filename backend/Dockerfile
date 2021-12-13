@@ -7,7 +7,7 @@ WORKDIR /Backend/src/main/resources
 RUN rm application.properties
 COPY application.properties application.properties
 
-EXPOSE 7357
+EXPOSE 8080
 
 FROM openjdk:8-jdk-alpine
 #LABEL Miguel Doctor <migueldoctor@gmail.com>
