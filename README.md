@@ -2,7 +2,6 @@
 
 ## Contents
 - [Introduction](#intro)
-- [Github](#git)
 - [Solution plan](#sol)
 - [Solution](#test)
 - [Difficulties](#diff)
@@ -28,9 +27,6 @@ To know more about the web-app - [Click Here](https://github.com/InnoTutor)
 4. Create a *Docker-Compose* file
 5. Create a video demo
 
-
-## Github <a id="git"> </a>
-Github repository - [Code](https://github.com/ParthKalkar/sna-final-project)
 
 ## Solution Plan <a id="sol"> </a>
 ### Methodology
